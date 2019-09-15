@@ -31,10 +31,8 @@ class _HomePageState extends State<HomePage> {
           Expanded(
             child: StreamBuilder(
               stream: snap?.stream,
-              builder: (_, snapshot)
-              {
-                if(!snapshot.hasData)
-                {
+              builder: (_, snapshot) {
+                if (!snapshot.hasData) {
                   return Center(child: CircularProgressIndicator());
                 }
                 return Text("Teste ${snapshot.data}");
@@ -43,11 +41,10 @@ class _HomePageState extends State<HomePage> {
           ),
           RaisedButton(
             onPressed: () {
-              socketIO.send("send message","Mensagem de teste");
+              socketIO.send("send message", "Mensagem de teste");
             },
             child: Text("Enviar Mensagem"),
           ),
-
         ],
       ),
     );

@@ -12,7 +12,7 @@ class SocketIOConnector {
 
   final String url;
 
-  SocketIOConnector(this.url){
+  SocketIOConnector(this.url) {
     _connect();
   }
 
@@ -39,12 +39,11 @@ class SocketIOConnector {
           ),
         ),
         () {
-        
           _snapmap.remove(key);
           if (_snapmap.keys.isEmpty) {
             _disconnect();
           }
-        },        
+        },
         conn: this,
       );
 
@@ -76,7 +75,7 @@ class SocketIOConnector {
 
         var json = jsonDecode(data.replaceFirst("$index", ""));
 
-      //  print(json);
+        //  print(json);
 
         if (json[0] is String) {
           _controller.add(json);
@@ -120,7 +119,7 @@ class SocketIOConnector {
     _snapmap.clear();
   }
 
-  void send(String method, String data)  {
+  void send(String method, String data) {
     if (!_isDisconnected) {
       if (_onConnect.isCompleted) {
         _onConnect = Completer<bool>();

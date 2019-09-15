@@ -12,8 +12,9 @@ class AppModule extends ModuleWidget {
 
   @override
   List<Dependency> get dependencies => [
-    Dependency((i)=>SocketIOConnector("ws://198.11.241.21:5000/socket.io/?transport=websocket"))
-  ];
+        Dependency((i) => SocketIOConnector(
+            "ws://198.11.241.21:5000/socket.io/?transport=websocket"))
+      ];
 
   @override
   Widget get view => AppWidget();
